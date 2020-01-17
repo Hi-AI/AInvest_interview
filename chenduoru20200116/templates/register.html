@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    {% if err %}
+    <h1 style="text-align:left">{{err}}</h1>
+    {% else %}
+    <h1 style="text-align:left">Register Page</h1>
+    {% endif %}
+    <form class="" role="form" method="post" action="/register/">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username" class="">username</label>
+                    <div class="">
+                        <input type="text" class="" id="username" name="username" placeholder="input your username">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="col-sm-2 control-label">password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="input your password">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="telephone" class="col-sm-2 control-label">telephone</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="telephone" name="telephone" placeholder="input your telephone">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="originate" class="col-sm-2 control-label">come from</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="originate" name="originate" placeholder="input where are you from">
+                    </div>
+                </div>
+
+                 <div class="form-group">
+                    <label for="is_pay" class="col-sm-2 control-label">Do you want to pay?</label>
+                    <div class="col-sm-10">
+                        <input type="checkbox" class="form-control" id="is_pay" name="is_pay">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">register</button>
+                    </div>
+                </div>
+            </form>
+</body>
+</html>
