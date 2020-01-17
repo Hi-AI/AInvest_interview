@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/getInfo/" method="post">
+    <input type="text" name="client" placeholder="查询用户姓名">
+    <input type="submit" value="搜索">
+    <hr>
+    {{ client }}一共登陆过{{ login_count }}次，今天{% if flag %}登陆过{% else %}未登陆过{% endif %}
+<span>{{ msg }}</span>
+
+    <table  border="1">
+            <thead>
+            <tr>
+                <th>客户名</th>
+                <th>登录次数</th>
+                <th>注册时间</th>
+                <th>最后一次登录时间</th>
+                <th>今天是否登录</th>
+                <th>手机号</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ client }}</td>
+                <td>{{ login_count }}</td>
+                <td>{{ auth.date_joined }}</td>
+                <td>{{ auth.last_login }}</td>
+                <td>
+                    {% if flag %}
+                        是
+                    {% else %}
+                        否
+                    {% endif %}
+                </td>
+                <td>{% if auth.tel %} 无 {% else %}{{ auth.tel }}{% endif %}</td>
+
+            </tr>
+            </tbody>
+        </table>
+</form>
+</body>
+</html>
