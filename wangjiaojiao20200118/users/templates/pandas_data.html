@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    {% if messageerror %}
+        <h1 style="text-align:left">{{messageerror}}</h1>
+    {% elif message %}
+        <h5 style="text-align:center">Username: {{message.username}}</h5>
+        <h5 style="text-align:center">Login Number: {{message.login_num}}</h5>
+        <h5 style="text-align:center">Register Time: {{message.register_time}}</h5>
+        {% if message.is_login %}
+            <h5 style="text-align:center">Last Login: {{message.last_login}}</h5>
+            <h5 style="text-align:center">Today Login: {{message.is_today}}</h5>
+        {% else %}
+            <h5 style="text-align:center">Last Login: Not Login</h5>
+            <h5 style="text-align:center">Today Login : Not Login</h5>
+        {% endif %}
+    {% else %}
+        <h1 style="text-align:left">register page</h1>
+    {% endif %}
+    <form class="" role="form" method="post" action="/accounts/PandasData/">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username" class="">Request Username</label>
+                    <div class="">
+                        <input type="text" class="" id="username" name="username" placeholder="input your username">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">check</button>
+                    </div>
+                </div>
+            </form>
+</body>
+</html>
